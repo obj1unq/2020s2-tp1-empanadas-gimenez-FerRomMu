@@ -24,4 +24,12 @@ object baigorria {
 
 //DUEÑO
 
-object Gimenez {}
+object gimenez {
+	var fondo = 300000
+	
+	method pagarSueldo(empleado){
+		fondo -= empleado.sueldo()
+	}
+	
+	method fondo(){return fondo}
+}
