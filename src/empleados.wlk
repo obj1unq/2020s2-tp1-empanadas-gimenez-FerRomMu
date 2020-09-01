@@ -8,18 +8,22 @@ object galvan {
 	method sueldo(nuevoSueldo){
 		sueldo = nuevoSueldo
 	}
+	method cobrar(monto){}
 	
 	method sueldo(){return sueldo}
 }
 
 object baigorria {
 	var sueldo = 0
+	var totalCobrado = 0
 	
 	method vender(empanadasVendidas){
 		sueldo += (empanadasVendidas*15)
 	}
+	method cobrar(monto){totalCobrado += monto; sueldo = 0}
 	
 	method sueldo(){return sueldo}
+	method totalCobrado(){return totalCobrado}
 }
 
 //DUEÑO
@@ -29,6 +33,7 @@ object gimenez {
 	
 	method pagarSueldo(empleado){
 		fondo -= empleado.sueldo()
+		empleado.cobrar(empleado.sueldo())
 	}
 	
 	method fondo(){return fondo}
