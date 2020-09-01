@@ -4,13 +4,24 @@
 
 object galvan {
 	var sueldo = 15000
+	var dinero = 0
+	var deuda = 0
 	
 	method sueldo(nuevoSueldo){
 		sueldo = nuevoSueldo
 	}
-	method cobrar(monto){}
+	method cobrar(monto){
+		dinero += 0.max(monto-deuda)
+		deuda = 0.max(deuda-monto)
+	}
+	method gastar(monto){
+		if (monto > dinero) {deuda += (monto-dinero)}
+		dinero = 0.max(dinero-monto)
+	}
 	
 	method sueldo(){return sueldo}
+	method dinero(){return dinero}
+	method deuda(){return deuda}
 }
 
 object baigorria {
